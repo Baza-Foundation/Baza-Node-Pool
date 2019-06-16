@@ -1,8 +1,8 @@
 {
-  "coin": "turtlecoin",
-  "symbol": "TRTL",
-  "coinUnits": 100,
-  "coinDifficultyTarget": 30,
+  "coin": "baza",
+  "symbol": "BAZ",
+  "coinUnits": 1000000,
+  "coinDifficultyTarget": 120,
   "logging": {
     "files": {
       "level": "info",
@@ -17,7 +17,7 @@
   "poolServer": {
     "enabled": true,
     "clusterForks": "auto",
-    "poolAddress": "TRTLv3mnq2wS6GepH6nb628jEjFseeojACYToJ1BXaZNNEvLkzW327zTVCh7ncGtS2MU2usGNq9ygVwiCTTft9QkN3t5P2Xqv3f",
+    "poolAddress": "bazyBEz3qDEGo7Y5mP6jFwdZ2UYVWgRA7UMrGbjDRWwY9uMwuRN7JzUYNH4Ch3z64sjUnMPwYE2FpcKvy9tfD2nR4UcgS6x3Xk",
     "blockRefreshInterval": 1000,
     "minerTimeout": 3600,
     "ports": [
@@ -86,19 +86,17 @@
   },
   "payments": {
     "enabled": true,
-    "allowPaymentId": true,
     "interval": 120,
     "maxAddresses": 50,
-    "transferFee": 100,
-    "minPayment": 100000,
-    "minPaymentIdPayment": 10000000,
+    "transferFee": 1000,
+    "minPayment": 2000000,
     "maxTransactionAmount": 0,
-    "denomination": 100
+    "denomination": 1000000
   },
   "blockUnlocker": {
     "enabled": true,
     "interval": 30,
-    "depth": 40,
+    "depth": 10,
     "poolFee": 2,
     "devDonation": 0.1,
     "coreDevDonation": 0.1,
@@ -116,7 +114,7 @@
   },
   "daemon": {
     "host": "127.0.0.1",
-    "port": 11898
+    "port": 11754
   },
   "wallet": {
     "host": "127.0.0.1",

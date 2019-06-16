@@ -15,13 +15,4 @@ WORKDIR /pool/
 
 RUN npm update
 
-RUN mkdir -p /config
-
-EXPOSE 8117
-EXPOSE 3333
-EXPOSE 5555
-EXPOSE 7777
-
-VOLUME ["/config"]
-
-CMD node init.js -config=/config/config.json
+CMD node init.js
