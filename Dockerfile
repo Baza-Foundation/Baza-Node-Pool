@@ -3,12 +3,15 @@ FROM node:8-slim
 
 # Pool will not listen on ports if daemon is not available, so we'll use wait-for-it
 # under docker swarm to delay starting pool until daemon is availabel on 11898
-ADD https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh /
+# ADD https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh /
+
+# RUN apt-get update \
+#   && DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs-legacy npm git libboost1.55-all libssl-dev \
+#   && rm -rf /var/lib/apt/lists/* && \
+#   chmod +x /wait-for-it.sh
 
 RUN apt-get update \
-  && DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs-legacy npm git libboost1.55-all libssl-dev \
-  && rm -rf /var/lib/apt/lists/* && \
-  chmod +x /wait-for-it.sh
+  && apt-get install -y python
 
 ADD . /pool/
 WORKDIR /pool/
