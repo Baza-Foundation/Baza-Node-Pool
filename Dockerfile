@@ -6,7 +6,7 @@ FROM node:8-alpine
 ADD https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh /
 
 RUN apk update \
-  && apk add nodejs-legacy npm git libboost1.55-all libssl-dev \
+  && apk add npm git boost-dev libressl-dev \
   && chmod +x /wait-for-it.sh
 
 ADD . /pool/
