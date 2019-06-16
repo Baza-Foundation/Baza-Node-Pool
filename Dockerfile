@@ -9,9 +9,12 @@ RUN apk update \
   && apk add npm git boost-dev libressl-dev make build-base \
   && chmod +x /wait-for-it.sh
 
-ADD . /pool/
+RUN mkdir /pool/
+COPY package-lock.json /pool/
 WORKDIR /pool/
 
 RUN npm update
+
+ADD . /pool/
 
 CMD node init.js
