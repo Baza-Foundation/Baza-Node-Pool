@@ -114,25 +114,6 @@
 </span>
 
 <hr />
-
-<!-- <div class="mining-doc">
-    <h3>Mining with XMR-Stak</h3>
-    <p>XMR-Stak is a unified miner, which means the same program will be used to mine with both your CPU and your GPU. It will automatically detect your hardware and adjust the settings accordingly</p>
-    <br/>
-    <h4>Downloading for Windows</h4>
-    <ol>
-        <li>Download and install <a href="https://github.com/fireice-uk/xmr-stak/releases/latest">XMR-Stak Unified Miner</a>. It will auto-detect your hardware, and tune everything for you.</li>
-        <li>Extract the file to a directory of your choice</li>
-        <li>Double-click on <code>xmr-stak.exe</code>.</li>
-        <li>Click <code>Yes</code> when it asks if you want to run as Administrator. This is so that the program can see what hardware you're running.</li>
-        <li>Check how to <a href="#xmr-stak-configuration">configure it</a></li>
-    </ol>
-    <br/>
-    <h4>Downloading and installing on Mac</h4>
-    <p>You will have to compile it yourself. See <a href="https://github.com/fireice-uk/xmr-stak/blob/master/doc/compile_macOS.md">here</a> for instructions.</p>
-    <p>Then, Check how to <a href="#xmr-stak-configuration">configure it</a></p>
-    <br/>
-</div> -->
 <div class="mining-doc">
     <h3>Mining with XMR-Stak</h3>
     <p>
@@ -427,8 +408,8 @@ If you don't want to use it, please enter 0, otherwise enter port number that th
     You can <a class="btn btn-default btn-sm" target="_blank" id="easyminer_link"><i class="fa fa-download"></i> Download</a>
     and run <a target="_blank" href="https://github.com/zone117x/cryptonote-easy-miner">cryptonote-easy-miner</a> <i class="fa fa-github"></i>
     which will automatically generate your wallet address and run CPUMiner with the proper parameters.
-</p> -->
-<!-- 
+</p>
+
 <hr>
 
 <h3>Mining Apps</h3>
@@ -621,9 +602,9 @@ If you don't want to use it, please enter 0, otherwise enter port number that th
         }
     };
 
-    document
-        .getElementById("easyminer_link")
-        .setAttribute("href", easyminerDownload);
+    // document
+    //     .getElementById("easyminer_link")
+    //     .setAttribute("href", easyminerDownload);
     document.getElementById("miningPoolHost").textContent = poolHost;
 
     var lastPortsJson = "";
