@@ -25,9 +25,15 @@ body {
     height: 100%;
     padding: 10px 0;
 }
+.pool-nav {
+    padding-left: 10px;
+}
 @media (max-width: 767px) {
     .navbar-inverse .navbar-brand > img {
         padding: 10px 0 10px 10px;
+    }
+    .pool-nav {
+        padding-left: 0;
     }
 }
 .navbar-inverse .navbar-brand:hover,

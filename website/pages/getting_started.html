@@ -1,102 +1,434 @@
 <style>
-    hr{
+    hr {
         border-top-color: #d9d9d9;
         margin-top: 40px !important;
         margin-bottom: 40px !important;
     }
-    #miningPorts > .stats{
+    #miningPorts > .stats {
         width: auto !important;
         margin-right: 70px;
         margin-left: 15px;
         display: inline-block;
     }
-    #miningPorts > .stats:last-child{
+    #miningPorts > .stats:last-child {
         margin-right: 0;
     }
-    .getting_started_windows{
+    .getting_started_windows {
         line-height: 40px;
     }
-    #getting_started_list > li{
+    #getting_started_list > li {
         margin-bottom: 20px;
     }
-    #mining_apps > tr:first-child > td{
+    #mining_apps > tr:first-child > td {
         padding-top: 35px;
     }
-    #mining_apps > tr > td{
+    #mining_apps > tr > td {
         border-top: none;
     }
-    #mining_apps > tr:nth-child(even) > td{
+    #mining_apps > tr:nth-child(even) > td {
         border-bottom: 1px solid #e5e5e5;
         padding-bottom: 20px;
     }
-    #mining_apps > tr:nth-child(odd) > td{
+    #mining_apps > tr:nth-child(odd) > td {
         padding-top: 20px;
     }
-    #mining_apps{
+    #mining_apps {
         margin-top: 10px;
     }
-    .miningAppTitle{
+    .miningAppTitle {
         font-weight: bold;
     }
-    .exampleAddress{
+    .exampleAddress {
         font-style: italic;
     }
-    #cpuminer_code{
+    #cpuminer_code {
         display: inline-block;
         white-space: normal;
     }
 </style>
 
-
 <h3>Connection Details</h3>
 <div class="stats">
-    <div><i class="fa fa-cloud"></i> Mining Pool Address: <span id="miningPoolHost"></span></div>
+    <div>
+        <i class="fa fa-cloud"></i> Mining Pool Address:
+        <span id="miningPoolHost"></span>
+    </div>
 </div>
 
 <h4>Mining Ports</h4>
 <div id="miningPorts" class="row">
     <div class="stats">
-        <div><i class="fa fa-tachometer"></i> Port: <span class="miningPort"></span></div>
-        <div><i class="fa fa-unlock-alt"></i> Starting Difficulty: <span class="miningPortDiff"></span></div>
-        <div><i class="fa fa-question"></i> Description: <span class="miningPortDesc"></span></div>
+        <div>
+            <i class="fa fa-tachometer"></i> Port:
+            <span class="miningPort"></span>
+        </div>
+        <div>
+            <i class="fa fa-unlock-alt"></i> Starting Difficulty:
+            <span class="miningPortDiff"></span>
+        </div>
+        <div>
+            <i class="fa fa-question"></i> Description:
+            <span class="miningPortDesc"></span>
+        </div>
     </div>
 </div>
 
 <p>The difficulty auto adjusts on all ports.</p>
-<p>To use a Fixed difficulty: Append .DIFF to your username. eg
- <code>WALLET.DIFF</code>
- <code>WALLET.DIFF+workerID</code>
+<p>
+    To use a Fixed difficulty: Append .DIFF to your username. eg
+    <code>WALLET.DIFF</code>
+    <code>WALLET.DIFF+workerID</code>
 
- <span style="display:none" id="paymentIdWallet">
- <code>WALLET.payId.diff</code>
- <code>WALLET.payId+workerID</code>
- <code>WALLET.payID.DIFF+workerID</code>
- <code>INTEGRATED_ADDRESS.DIFF+workerID</code>
- </span>
- as username.</p>
+    <span style="display:none" id="paymentIdWallet">
+        <code>WALLET.payId.diff</code>
+        <code>WALLET.payId+workerID</code>
+        <code>WALLET.payID.DIFF+workerID</code>
+        <code>INTEGRATED_ADDRESS.DIFF+workerID</code>
+    </span>
+    as username.
+</p>
 
 <span style="display: none" id="exchangeMining">
-<hr>
-<h3>Mining to an exchange</h3>
-<p>This pool supports mining directly to an exchange!  <br>
-To do this for exchanges using a paymentID, you need to use
-<code>EXCHANGE_WALLET_ADDRESS.payment_id</code> or use the integrated address if provided <code>INTEGRATED_ADDRESS</code> as your username, and when looking
-at your stats. The payment threshold for exchange addresses is <span id="paymentThreshold"></span>
-<hr>
-<h3>Payment ID Notice</h3>
-<p>If you specify a Payment ID with the wallet information in your miner, the pool will automatically convert the address and Payment ID into an Integrated Address.</p>
-<p>To look up your statistics, you must use the integrated address which is the combination of your wallet address and Payment ID.</p>
+    <hr />
+    <h3>Mining to an exchange</h3>
+    <p>
+        This pool supports mining directly to an exchange! <br />
+        To do this for exchanges using a paymentID, you need to use
+        <code>EXCHANGE_WALLET_ADDRESS.payment_id</code> or use the integrated
+        address if provided <code>INTEGRATED_ADDRESS</code> as your username,
+        and when looking at your stats. The payment threshold for exchange
+        addresses is <span id="paymentThreshold"></span>
+    </p>
+
+    <hr />
+    <h3>Payment ID Notice</h3>
+    <p>
+        If you specify a Payment ID with the wallet information in your miner,
+        the pool will automatically convert the address and Payment ID into an
+        Integrated Address.
+    </p>
+    <p>
+        To look up your statistics, you must use the integrated address which is
+        the combination of your wallet address and Payment ID.
+    </p>
 </span>
 
-<hr>
+<hr />
 
-<h3>For <i class="fa fa-windows"></i> Windows users new to mining</h3>
+<!-- <div class="mining-doc">
+    <h3>Mining with XMR-Stak</h3>
+    <p>XMR-Stak is a unified miner, which means the same program will be used to mine with both your CPU and your GPU. It will automatically detect your hardware and adjust the settings accordingly</p>
+    <br/>
+    <h4>Downloading for Windows</h4>
+    <ol>
+        <li>Download and install <a href="https://github.com/fireice-uk/xmr-stak/releases/latest">XMR-Stak Unified Miner</a>. It will auto-detect your hardware, and tune everything for you.</li>
+        <li>Extract the file to a directory of your choice</li>
+        <li>Double-click on <code>xmr-stak.exe</code>.</li>
+        <li>Click <code>Yes</code> when it asks if you want to run as Administrator. This is so that the program can see what hardware you're running.</li>
+        <li>Check how to <a href="#xmr-stak-configuration">configure it</a></li>
+    </ol>
+    <br/>
+    <h4>Downloading and installing on Mac</h4>
+    <p>You will have to compile it yourself. See <a href="https://github.com/fireice-uk/xmr-stak/blob/master/doc/compile_macOS.md">here</a> for instructions.</p>
+    <p>Then, Check how to <a href="#xmr-stak-configuration">configure it</a></p>
+    <br/>
+</div> -->
+<div class="mining-doc">
+    <h3>Mining with XMR-Stak</h3>
+    <p>
+        XMR-Stak is a unified miner, which means the same program will be used
+        to mine with both your CPU and your GPU. It will automatically detect
+        your hardware and adjust the settings accordingly.
+    </p>
+    <h2>Downloading for Windows</h2>
+    <ol>
+        <li>
+            <p>
+                Download and install
+                <a href="https://github.com/fireice-uk/xmr-stak/releases/latest"
+                    >XMR-Stak Unified Miner</a
+                >. It will auto-detect your hardware, and tune everything for
+                you.
+            </p>
+        </li>
+        <li><p>Extract the file to a directory of your choice</p></li>
+        <li>
+            <p>Double-click on <code>xmr-stak.exe</code>.</p>
+        </li>
+        <li>
+            <p>
+                Click <code>Yes</code> when it asks if you want to run as
+                Administrator. This is so that the program can see what hardware
+                you're running.
+            </p>
+        </li>
+        <li>
+            <p>
+                Check below configure it
+            </p>
+        </li>
+    </ol>
+    <h2>
+        Downloading and Installing for Mac
+    </h2>
+    <p>
+        You will have to compile it yourself. See
+        <a
+            href="https://github.com/fireice-uk/xmr-stak/blob/master/doc/compile_macOS.md"
+            >here</a
+        >
+        for instructions.
+    </p>
+    <p>
+        Check below configure it
+    </p>
+    <h2>
+        Downloading and Installing for Linux
+    </h2>
+    <ol>
+        <li>
+            Download and install
+            <a href="https://github.com/fireice-uk/xmr-stak/releases/latest"
+                >XMR-Stak Unified Miner</a
+            >. It will auto-detect your hardware, and tune everything for you.
+        </li>
+        <li>Extract the file to a directory of your choice</li>
+        <li>Double-click on <code>xmr-stak</code></li>
+        <li>
+            <p>
+                Check below configure it
+            </p>
+        </li>
+    </ol>
+    <h3>
+        Compiling
+    </h3>
+    <p>
+        If you'd like to compile XMR-Stak, see
+        <a
+            href="https://github.com/fireice-uk/xmr-stak/blob/master/doc/compile_Linux.md"
+            >the offical guide</a
+        >
+        for instructions.
+    </p>
+    <p>
+        Then, Check below configure it
+    </p>
+    <h2>
+        XMR-Stak Configuration
+    </h2>
+    <p>
+        Upon first launching XMR-Stak, the software will ask you several setup
+        and configuration questions.
+    </p>
+    <ol>
+        <li>
+            <p>Use simple setup method? (Y/n)</p>
+            <p>Press <code>Y</code> or just enter</p>
+        </li>
+        <li>
+            <pre>
+Please enter:
+- Please enter the currency that you want to mine: 
+- aeon7
+- bbscoin
+- bittube
+- cryptonight
+- cryptonight_bittube2
+- cryptonight_masari
+- cryptonight_haven
+- cryptonight_heavy
+- cryptonight_lite
+- cryptonight_lite_v7
+- cryptonight_lite_v7_xor
+- cryptonight_r
+- cryptonight_superfast
+- cryptonight_turtle
+- cryptonight_v7
+- cryptonight_v8
+- cryptonight_v8_double
+- cryptonight_v8_half
+- cryptonight_v8_reversewaltz
+- cryptonight_v8_zelerius
+- cryptonight_v7_stellite
+- cryptonight_gpu
+- cryptonight_conceal
+- graft
+- haven
+- lethean
+- masari
+- monero
+- qrl
+- ryo
+- torque
+- turtlecoin
+- plenteum
+- zelerius
+- xcash
+                </pre>
+            <p>
+                Enter <code>turtlecoin</code> or
+                <code>cryptonight_lite_v7</code>
+            </p>
+        </li>
+    </ol>
+    <ol start="3">
+        <li>
+            <p>Pool address: enter <code>pool.baza.foundation:3333</code></p>
+        </li>
+        <li>
+            <p>Username (Wallet address or pool login):</p>
+            <p>Enter your Baza wallet address.</p>
+        </li>
+        <li>
+            <p>Password (mostly empty or x):</p>
+            <p>Enter <code>x</code>.</p>
+        </li>
+        <li>
+            <p>
+                Does this pool port support TLS/SSL? Use no if unknown.(y/N)
+            </p>
+            <p><code>N</code></p>
+        </li>
+    </ol>
+    <ul>
+        <li>
+            If you are on Windows 7/8, it will ask for administrator permission
+            again. Click <code>Yes</code> to grant it permission.
+        </li>
+        <li>If you are on Windows 10, it will not ask for it again.</li>
+    </ul>
+    <p>
+        Done! The miner will now start scanning your hardware and will begin
+        mining. Awesome!
+    </p>
+    <p>
+        XMR-Stak will save your configuration in <code>config.txt</code> in the
+        same directory from which it was first run.
+    </p>
+    <p>
+        Your configuration for pools(algorithm to mine, address, port etc) will
+        be saved in <code>pools.txt</code>.<br />
+        The configuration of the device it mines(CPU/AMD/NVIDIA) will be saved
+        in <code>cpu.txt</code>, <code>amd.txt</code> or
+        <code>nvidia.txt</code>, respectively.
+    </p>
+    <p>
+        Run XMR-Stak again from the same directory to reuse the configuration.
+    </p>
+    <h3>
+        Advanced Configuration
+    </h3>
+    <p>
+        In case you answer <code>n</code> to the first question(<code
+            >Use simple setup method?</code
+        >), the following questions will be asked, along with the ones covered
+        above. The order of the questions here may not be in order of questions
+        asked by XMR-Stak.
+    </p>
+    <ol>
+        <li>
+            <pre>
+Please enter:
+- Do you want to use the HTTP interface?
+Unlike the screen display, browser interface is not affected by the GPU lag.
+If you don't want to use it, please enter 0, otherwise enter port number that the miner should listen on
+            </pre>
+            <p>
+                Enter <code>0</code>, if you do not need to remotely check your
+                hashrate(most people).
+            </p>
+            <p>
+                If you do need to, then enter a port number. Generally it is
+                recommended to use a port number in the range 1025-65535. For
+                example purposes, lets say you used <code>1337</code> as the
+                port.
+            </p>
+            <p>
+                To check the hashrate, enter in the address bar of your web
+                browser,
+                <code>localhost:1337</code>.<br />
+                Change the <code>1337</code> if you used a different port.
+            </p>
+            <p>It should show a page with your rig's hashrate.</p>
+            <p>
+                If you want to check your miners hashrate whilst you are on a
+                different network, you will have to enter your computers IP
+                address, followed by the port, for example,
+                <code>198.51.100.0:1337</code>.
+            </p>
+            <p>
+                You can find your computers IP by visiting this website whilst
+                on that computer:
+                <a href="http://whatsmyip.org/">http://whatsmyip.org/</a>
+            </p>
+            <p>
+                You will probably have to open the port you are running the
+                interface on in your router admin panel. Instructions on how to
+                do this are out of scope for this document.
+            </p>
+        </li>
+    </ol>
+    <ol start="2">
+        <li>
+            <p>
+                Rig identifier for pool-side statistics (needs pool support).
+                Can be empty:
+            </p>
+            <p>
+                leave it empty and press enter.
+            </p>
+        </li>
+    </ol>
+    <ol start="3">
+        <li>
+            <p>
+                Do you want to use nicehash on this pool? (y/n)
+            </p>
+            <p>Enter <code>n</code></p>
+        </li>
+        <li>
+            <p>Do you want to use multiple pools? (y/N)</p>
+            <p>
+                This is recommended, so that your miner is still hashing if your
+                pool goes down. However, it is not needed.
+            </p>
+            <ul>
+                <li>
+                    Enter <code>y</code> if you would like to add more pools.
+                </li>
+                <li>
+                    <p>
+                        Give them all a weight of <code>10</code> if you're
+                        tired of reading, or if you want the best experience,
+                        give the pools nearest to you a higher number, and the
+                        ones further from you a lower number.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        XMR-Stak will prioritize the highest weight pool, and
+                        fall back to the others if it cannot connect.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        If they are all given the same weight, it will connect
+                        to them in order of how they are listed, form top to
+                        bottom, in the configuration file.
+                    </p>
+                </li>
+            </ul>
+        </li>
+    </ol>
+</div>
+<!-- <h3>For <i class="fa fa-windows"></i> Windows users new to mining</h3>
 <p class="getting_started_windows">
     You can <a class="btn btn-default btn-sm" target="_blank" id="easyminer_link"><i class="fa fa-download"></i> Download</a>
     and run <a target="_blank" href="https://github.com/zone117x/cryptonote-easy-miner">cryptonote-easy-miner</a> <i class="fa fa-github"></i>
     which will automatically generate your wallet address and run CPUMiner with the proper parameters.
-</p>
-
+</p> -->
+<!-- 
 <hr>
 
 <h3>Mining Apps</h3>
@@ -220,32 +552,50 @@ at your stats. The payment threshold for exchange addresses is <span id="payment
         </tr>
         </tbody>
     </table>
-</div>
-
+</div> -->
 
 <script>
-
     currentPage = {
-        destroy: function(){
-
-        },
-        init: function(){
-        },
-        update: function(){
+        destroy: function() {},
+        init: function() {},
+        update: function() {
             var portsJson = JSON.stringify(lastStats.config.ports);
             if (lastPortsJson !== portsJson) {
                 if (lastStats.config.paymentIdSupported) {
-                  document.getElementById('paymentThreshold').innerHTML = (lastStats.config.paymentIdMinPaymentAmount / lastStats.config.denominationUnit).toFixed(Math.log(lastStats.config.denominationUnit)/Math.log(10)) + ' ' + lastStats.config.symbol
-                  if (document.getElementById('paymentIdWallet').style.display == 'none') {
-                    document.getElementById('paymentIdWallet').style.display = ''
-                  } else {
-                    document.getElementById('paymentIdWallet').style.display = 'none'
-                  }
-                  if (document.getElementById('exchangeMining').style.display == 'none') {
-                    document.getElementById('exchangeMining').style.display = ''
-                  } else {
-                    document.getElementById('exchangeMining').style.display = 'none'
-                   }
+                    document.getElementById("paymentThreshold").innerHTML =
+                        (
+                            lastStats.config.paymentIdMinPaymentAmount /
+                            lastStats.config.denominationUnit
+                        ).toFixed(
+                            Math.log(lastStats.config.denominationUnit) /
+                                Math.log(10)
+                        ) +
+                        " " +
+                        lastStats.config.symbol;
+                    if (
+                        document.getElementById("paymentIdWallet").style
+                            .display == "none"
+                    ) {
+                        document.getElementById(
+                            "paymentIdWallet"
+                        ).style.display = "";
+                    } else {
+                        document.getElementById(
+                            "paymentIdWallet"
+                        ).style.display = "none";
+                    }
+                    if (
+                        document.getElementById("exchangeMining").style
+                            .display == "none"
+                    ) {
+                        document.getElementById(
+                            "exchangeMining"
+                        ).style.display = "";
+                    } else {
+                        document.getElementById(
+                            "exchangeMining"
+                        ).style.display = "none";
+                    }
                 }
 
                 lastPortsJson = portsJson;
@@ -253,26 +603,31 @@ at your stats. The payment threshold for exchange addresses is <span id="payment
                 for (var i = 0; i < lastStats.config.ports.length; i++) {
                     var portData = lastStats.config.ports[i];
                     var $portChild = $(miningPortTemplate);
-                    $portChild.find('.miningPort').text(portData.port);
-                    $portChild.find('.miningPortDiff').text(portData.difficulty);
-                    $portChild.find('.miningPortDesc').text(portData.desc);
+                    $portChild.find(".miningPort").text(portData.port);
+                    $portChild
+                        .find(".miningPortDiff")
+                        .text(portData.difficulty);
+                    $portChild.find(".miningPortDesc").text(portData.desc);
                     $miningPortChildren.push($portChild);
                 }
                 $miningPorts.empty().append($miningPortChildren);
             }
 
-            updateTextClasses('exampleHost', poolHost);
-            updateTextClasses('examplePort', lastStats.config.ports[0].port.toString());
-
+            updateTextClasses("exampleHost", poolHost);
+            updateTextClasses(
+                "examplePort",
+                lastStats.config.ports[0].port.toString()
+            );
         }
     };
 
-    document.getElementById('easyminer_link').setAttribute('href', easyminerDownload);
-    document.getElementById('miningPoolHost').textContent = poolHost;
+    document
+        .getElementById("easyminer_link")
+        .setAttribute("href", easyminerDownload);
+    document.getElementById("miningPoolHost").textContent = poolHost;
 
-    var lastPortsJson = '';
-    var $miningPorts = $('#miningPorts');
+    var lastPortsJson = "";
+    var $miningPorts = $("#miningPorts");
     var miningPortTemplate = $miningPorts.html();
     $miningPorts.empty();
-
 </script>
