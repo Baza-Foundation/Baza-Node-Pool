@@ -1,8 +1,12 @@
 <h3>Contact</h3>
 <p>Email pool support at <a id="emailLink" href=""></a></p>
+<p>Our telegram channel is at <a id="telegramLink" href=""></a></p>
 
 <script>
     var emailEl = document.getElementById('emailLink');
     emailEl.setAttribute('href', 'mailto:' + email);
     emailEl.textContent = email;
+    var telegramEl = document.getElementById('telegramLink');
+    telegramEl.setAttribute('href', telegram);
+    telegramEl.textContent = telegram;
 </script>

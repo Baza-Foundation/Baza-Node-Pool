@@ -8,6 +8,8 @@ var irc = ''
 
 var email = 'support@baza.foundation'
 
+var telegram = 'https://t.me/bazafoundation'
+
 var cryptonatorWidget = ['{symbol}-BTC', '{symbol}-USD', '{symbol}-EUR']
 
 var easyminerDownload = 'https://github.com/zone117x/cryptonote-easy-miner/releases/'
