@@ -5,6 +5,6 @@ RUN mkdir /pool/
 COPY package.json /pool/
 COPY package-lock.json /pool/
 WORKDIR /pool/
-RUN npm update
+RUN npm install
 COPY . /pool/
 CMD node init.js
