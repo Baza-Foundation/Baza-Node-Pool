@@ -1,6 +1,6 @@
-FROM node:8-alpine
-RUN apk update \
-  && apk add npm git boost-dev libressl-dev make build-base
+FROM node:8
+RUN apt-get update \
+  && apk-get install npm git boost-dev libressl-dev make build-essential
 RUN mkdir /pool/
 COPY package.json /pool/
 COPY package-lock.json /pool/
