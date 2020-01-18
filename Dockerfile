@@ -1,4 +1,4 @@
-FROM node:8
+FROM node:10
 RUN apt-get update \
   && apk-get install npm git boost-dev libressl-dev make build-essential
 RUN mkdir /pool/
