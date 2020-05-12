@@ -4,43 +4,55 @@
         margin-top: 40px !important;
         margin-bottom: 40px !important;
     }
-    #miningPorts > .stats {
+
+    #miningPorts>.stats {
         width: auto !important;
         margin-right: 70px;
         margin-left: 15px;
         display: inline-block;
     }
-    #miningPorts > .stats:last-child {
+
+    #miningPorts>.stats:last-child {
         margin-right: 0;
     }
+
     .getting_started_windows {
         line-height: 40px;
     }
-    #getting_started_list > li {
+
+    #getting_started_list>li {
         margin-bottom: 20px;
     }
-    #mining_apps > tr:first-child > td {
+
+    #mining_apps>tr:first-child>td {
         padding-top: 35px;
     }
-    #mining_apps > tr > td {
+
+    #mining_apps>tr>td {
         border-top: none;
     }
-    #mining_apps > tr:nth-child(even) > td {
+
+    #mining_apps>tr:nth-child(even)>td {
         border-bottom: 1px solid #e5e5e5;
         padding-bottom: 20px;
     }
-    #mining_apps > tr:nth-child(odd) > td {
+
+    #mining_apps>tr:nth-child(odd)>td {
         padding-top: 20px;
     }
+
     #mining_apps {
         margin-top: 10px;
     }
+
     .miningAppTitle {
         font-weight: bold;
     }
+
     .exampleAddress {
         font-style: italic;
     }
+
     #cpuminer_code {
         display: inline-block;
         white-space: normal;
@@ -126,13 +138,14 @@
         <li>
             <p>
                 Download and install
-                <a href="https://github.com/fireice-uk/xmr-stak/releases/latest"
-                    >XMR-Stak Unified Miner</a
-                >. It will auto-detect your hardware, and tune everything for
+                <a href="https://github.com/fireice-uk/xmr-stak/releases/latest">XMR-Stak Unified Miner</a>. It will
+                auto-detect your hardware, and tune everything for
                 you.
             </p>
         </li>
-        <li><p>Extract the file to a directory of your choice</p></li>
+        <li>
+            <p>Extract the file to a directory of your choice</p>
+        </li>
         <li>
             <p>Double-click on <code>xmr-stak.exe</code>.</p>
         </li>
@@ -154,10 +167,7 @@
     </h2>
     <p>
         You will have to compile it yourself. See
-        <a
-            href="https://github.com/fireice-uk/xmr-stak/blob/master/doc/compile_macOS.md"
-            >here</a
-        >
+        <a href="https://github.com/fireice-uk/xmr-stak/blob/master/doc/compile_macOS.md">here</a>
         for instructions.
     </p>
     <p>
@@ -169,9 +179,8 @@
     <ol>
         <li>
             Download and install
-            <a href="https://github.com/fireice-uk/xmr-stak/releases/latest"
-                >XMR-Stak Unified Miner</a
-            >. It will auto-detect your hardware, and tune everything for you.
+            <a href="https://github.com/fireice-uk/xmr-stak/releases/latest">XMR-Stak Unified Miner</a>. It will
+            auto-detect your hardware, and tune everything for you.
         </li>
         <li>Extract the file to a directory of your choice</li>
         <li>Double-click on <code>xmr-stak</code></li>
@@ -186,10 +195,7 @@
     </h3>
     <p>
         If you'd like to compile XMR-Stak, see
-        <a
-            href="https://github.com/fireice-uk/xmr-stak/blob/master/doc/compile_Linux.md"
-            >the offical guide</a
-        >
+        <a href="https://github.com/fireice-uk/xmr-stak/blob/master/doc/compile_Linux.md">the offical guide</a>
         for instructions.
     </p>
     <p>
@@ -246,8 +252,7 @@ Please enter:
 - plenteum
 - zelerius
 - xcash
-                </pre
-            >
+                </pre>
             <p>
                 Enter <code>turtlecoin</code> or
                 <code>cryptonight_lite_v7</code>
@@ -256,7 +261,7 @@ Please enter:
     </ol>
     <ol start="3">
         <li>
-            <p>Pool address: enter <code>70.35.193.174:3333</code></p>
+            <p>Pool address: enter <code>70.35.206.105:3333</code></p>
         </li>
         <li>
             <p>Username (Wallet address or pool login):</p>
@@ -302,9 +307,8 @@ Please enter:
         Advanced Configuration
     </h3>
     <p>
-        In case you answer <code>n</code> to the first question(<code
-            >Use simple setup method?</code
-        >), the following questions will be asked, along with the ones covered
+        In case you answer <code>n</code> to the first question(<code>Use simple setup method?</code>), the following
+        questions will be asked, along with the ones covered
         above. The order of the questions here may not be in order of questions
         asked by XMR-Stak.
     </p>
@@ -538,9 +542,9 @@ If you don't want to use it, please enter 0, otherwise enter port number that th
 
 <script>
     currentPage = {
-        destroy: function() {},
-        init: function() {},
-        update: function() {
+        destroy: function () {},
+        init: function () {},
+        update: function () {
             var portsJson = JSON.stringify(lastStats.config.ports);
             if (lastPortsJson !== portsJson) {
                 if (lastStats.config.paymentIdSupported) {
@@ -550,13 +554,13 @@ If you don't want to use it, please enter 0, otherwise enter port number that th
                             lastStats.config.denominationUnit
                         ).toFixed(
                             Math.log(lastStats.config.denominationUnit) /
-                                Math.log(10)
+                            Math.log(10)
                         ) +
                         " " +
                         lastStats.config.symbol;
                     if (
                         document.getElementById("paymentIdWallet").style
-                            .display == "none"
+                        .display == "none"
                     ) {
                         document.getElementById(
                             "paymentIdWallet"
@@ -568,7 +572,7 @@ If you don't want to use it, please enter 0, otherwise enter port number that th
                     }
                     if (
                         document.getElementById("exchangeMining").style
-                            .display == "none"
+                        .display == "none"
                     ) {
                         document.getElementById(
                             "exchangeMining"
