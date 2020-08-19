@@ -1,0 +1,43 @@
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Baz Nodes</th>
+                <th>Status</th>
+                <th>Last Check</th>
+            </tr>
+        </thead>
+        <tbody id="nodes_rows"></tbody>
+    </table>
+</div>
+<script>
+    currentPage = {
+        destroy: function () {
+            if (nodeStatusID) {
+                clearInterval(nodeStatusID);
+            }
+        },
+        init: function () {},
+        update: function () {},
+    };
+    function renderNodesStatus(data) {
+        var elements = "";
+        Object.keys(data).map((x) => {
+            elements += `<tr><td>${x}</td><td>${
+                data[x].status
+            }</td><td>${new Date(
+                data[x].last_check
+            ).toLocaleString()}</td></tr>`;
+        });
+        $("#nodes_rows").html(elements);
+    }
+    function getNodesStatus() {
+        $.ajax({
+            url: "https://nodestatus.baza.foundation/api/v1/nodes-status/",
+            success: function (data) {
+                renderNodesStatus(data);
+            },
+        });
+    }
+    var nodeStatusID = setInterval(getNodesStatus, 5000);
+</script>
