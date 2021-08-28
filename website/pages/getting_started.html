@@ -5,14 +5,19 @@
         margin-bottom: 40px !important;
     }
 
-    #miningPorts>.stats {
+    ul,
+    ol {
+        padding-left: 1rem;
+    }
+
+    #miningPorts > .stats {
         width: auto !important;
         margin-right: 70px;
         margin-left: 15px;
         display: inline-block;
     }
 
-    #miningPorts>.stats:last-child {
+    #miningPorts > .stats:last-child {
         margin-right: 0;
     }
 
@@ -20,24 +25,24 @@
         line-height: 40px;
     }
 
-    #getting_started_list>li {
+    #getting_started_list > li {
         margin-bottom: 20px;
     }
 
-    #mining_apps>tr:first-child>td {
+    #mining_apps > tr:first-child > td {
         padding-top: 35px;
     }
 
-    #mining_apps>tr>td {
+    #mining_apps > tr > td {
         border-top: none;
     }
 
-    #mining_apps>tr:nth-child(even)>td {
+    #mining_apps > tr:nth-child(even) > td {
         border-bottom: 1px solid #e5e5e5;
         padding-bottom: 20px;
     }
 
-    #mining_apps>tr:nth-child(odd)>td {
+    #mining_apps > tr:nth-child(odd) > td {
         padding-top: 20px;
     }
 
@@ -59,7 +64,98 @@
     }
 </style>
 
-<h3>Connection Details</h3>
+<h3 id="baza-dedicated-miner">Baza Dedicated Miner</h3>
+<p>
+    bazadedicatedminer is a high performance, open source, cross platform
+    RandomX, KawPow, CryptoNight and AstroBWT unified CPU/GPU miner forked from
+    <a href="https://github.com/xmrig/xmrig/">xmrig</a>. Official binaries are
+    available for Windows, Ubuntu Linux and Debian.
+</p>
+<h2 id="mining-backends">Mining backends</h2>
+<ul>
+    <li><strong>CPU</strong> (x64/ARMv8)</li>
+    <li><strong>OpenCL</strong> for AMD GPUs.</li>
+    <li>
+        <strong>CUDA</strong> for NVIDIA GPUs via external
+        <a href="https://github.com/xmrig/xmrig-cuda">CUDA plugin</a>.
+    </li>
+</ul>
+<h2 id="download">Download</h2>
+<ul>
+    <li>
+        <strong
+            ><a
+                href="https://gitlab.ekata.io/baza-foundation/baza-dedicated-miner/-/releases#0.0.1"
+                >Binary releases</a
+            ></strong
+        >
+    </li>
+</ul>
+<h2 id="build">Build</h2>
+<h4 id="ubuntu">Ubuntu</h4>
+<h5 id="basic-build">Basic Build</h5>
+<p>
+    Basic build is good for local machine, because it is easy, but if you need
+    to run the miner on other machines please take a look at advanced build.
+</p>
+<pre><code class="lang-bash"><span class="hljs-number">1</span>. sudo apt-<span class="hljs-meta">get</span> install git <span class="hljs-keyword">build-essential </span>cmake libuv1-dev libssl-dev libhwloc-dev
+<span class="hljs-number">2</span>. git clone https://gitlab.ekata.io/<span class="hljs-keyword">baza-foundation/baza-dedicated-miner.git
+</span><span class="hljs-number">3</span>. mkdir <span class="hljs-keyword">baza-dedicated-miner/build </span>&amp;&amp; cd <span class="hljs-keyword">baza-dedicated-miner/build
+</span><span class="hljs-number">4</span>. cmake ..
+<span class="hljs-number">5</span>. make -j$(nproc)
+</code></pre>
+<h5 id="advanced-build">Advanced Build</h5>
+<pre><code class="lang-bash"><span class="hljs-number">1</span>. sudo apt-<span class="hljs-meta">get</span> install git <span class="hljs-keyword">build-essential </span>cmake automake libtool autoconf
+<span class="hljs-number">2</span>. git clone https://gitlab.ekata.io/<span class="hljs-keyword">baza-foundation/baza-dedicated-miner.git
+</span><span class="hljs-number">3</span>. mkdir <span class="hljs-keyword">baza-dedicated-miner/build </span>&amp;&amp; cd <span class="hljs-keyword">baza-dedicated-miner/scripts
+</span><span class="hljs-number">4</span>. ./<span class="hljs-keyword">build_deps.sh </span>&amp;&amp; cd ../<span class="hljs-keyword">build
+</span><span class="hljs-number">5</span>. cmake .. -DXMRIG_DEPS<span class="hljs-symbol">=scripts</span>/deps
+<span class="hljs-number">6</span>. make -j$(nproc)
+</code></pre>
+<h2 id="running">Running</h2>
+<ol>
+    <li>
+        Download the binary from the
+        <a
+            href="https://gitlab.ekata.io/baza-foundation/baza-dedicated-miner/-/releases"
+            >release</a
+        >
+        page
+    </li>
+    <li>Extract the zip and go to the directory</li>
+    <li>
+        Run with this command
+        <code>./bazadedicatedminer -u &lt;your_baza_wallet_address&gt;</code>
+    </li>
+</ol>
+<h2 id="cuda">CUDA</h2>
+<h3 id="build">Build</h3>
+<h4 id="ubuntu">Ubuntu</h4>
+<p>
+    Follow instructions on
+    <a href="https://developer.nvidia.com/cuda-downloads" target="_blank"
+        >https://developer.nvidia.com/cuda-downloads</a
+    >
+    to install CUDA.
+</p>
+<pre><code class="lang-bash"><span class="hljs-number">1.</span> git clone <span class="hljs-string">https:</span><span class="hljs-comment">//github.com/xmrig/xmrig-cuda.git</span>
+<span class="hljs-number">2.</span> mkdir xmrig-cuda<span class="hljs-regexp">/build &amp;&amp; cd xmrig-cuda/</span>build
+<span class="hljs-number">3.</span> cmake .. -DCUDA_LIB=<span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/cuda/</span>lib64<span class="hljs-regexp">/stubs/</span>libcuda.so -DCUDA_TOOLKIT_ROOT_DIR=<span class="hljs-regexp">/usr/</span>local/cuda
+<span class="hljs-number">4.</span> make -j$(nproc)
+</code></pre>
+<p>
+    Compiled plugin is provided in
+    <a
+        href="https://gitlab.ekata.io/baza-foundation/baza-dedicated-miner/-/releases"
+        >release</a
+    >
+    page
+</p>
+<h4 id="how-to-use-with-cuda">How to use with CUDA</h4>
+<pre><code class="lang-bash">./bazadedicatedminer -<span class="hljs-keyword">u</span> <span class="hljs-symbol">&lt;your_baza_wallet_address&gt;</span> --cuda --cuda-loader=&lt;path <span class="hljs-keyword">to</span> CUDA plugin (xmrig-cuda.dll <span class="hljs-built_in">or</span> libxmrig-cuda.<span class="hljs-keyword">so</span>)&gt;
+</code></pre>
+
+<!-- <h3>Connection Details</h3>
 <div class="stats">
     <div>
         <i class="fa fa-cloud"></i> Mining Pool Address:
@@ -138,14 +234,13 @@
         <li>
             <p>
                 Download and install
-                <a href="https://github.com/fireice-uk/xmr-stak/releases/latest">XMR-Stak Unified Miner</a>. It will
-                auto-detect your hardware, and tune everything for
+                <a href="https://github.com/fireice-uk/xmr-stak/releases/latest"
+                    >XMR-Stak Unified Miner</a
+                >. It will auto-detect your hardware, and tune everything for
                 you.
             </p>
         </li>
-        <li>
-            <p>Extract the file to a directory of your choice</p>
-        </li>
+        <li><p>Extract the file to a directory of your choice</p></li>
         <li>
             <p>Double-click on <code>xmr-stak.exe</code>.</p>
         </li>
@@ -167,7 +262,10 @@
     </h2>
     <p>
         You will have to compile it yourself. See
-        <a href="https://github.com/fireice-uk/xmr-stak/blob/master/doc/compile_macOS.md">here</a>
+        <a
+            href="https://github.com/fireice-uk/xmr-stak/blob/master/doc/compile_macOS.md"
+            >here</a
+        >
         for instructions.
     </p>
     <p>
@@ -179,8 +277,9 @@
     <ol>
         <li>
             Download and install
-            <a href="https://github.com/fireice-uk/xmr-stak/releases/latest">XMR-Stak Unified Miner</a>. It will
-            auto-detect your hardware, and tune everything for you.
+            <a href="https://github.com/fireice-uk/xmr-stak/releases/latest"
+                >XMR-Stak Unified Miner</a
+            >. It will auto-detect your hardware, and tune everything for you.
         </li>
         <li>Extract the file to a directory of your choice</li>
         <li>Double-click on <code>xmr-stak</code></li>
@@ -195,7 +294,10 @@
     </h3>
     <p>
         If you'd like to compile XMR-Stak, see
-        <a href="https://github.com/fireice-uk/xmr-stak/blob/master/doc/compile_Linux.md">the offical guide</a>
+        <a
+            href="https://github.com/fireice-uk/xmr-stak/blob/master/doc/compile_Linux.md"
+            >the offical guide</a
+        >
         for instructions.
     </p>
     <p>
@@ -252,7 +354,8 @@ Please enter:
 - plenteum
 - zelerius
 - xcash
-                </pre>
+                </pre
+            >
             <p>
                 Enter <code>turtlecoin</code> or
                 <code>cryptonight_lite_v7</code>
@@ -261,7 +364,7 @@ Please enter:
     </ol>
     <ol start="3">
         <li>
-            <p>Pool address: enter <code>70.35.206.105:3333</code></p>
+            <p>Pool address: enter <code>70.35.193.174:3333</code></p>
         </li>
         <li>
             <p>Username (Wallet address or pool login):</p>
@@ -307,8 +410,9 @@ Please enter:
         Advanced Configuration
     </h3>
     <p>
-        In case you answer <code>n</code> to the first question(<code>Use simple setup method?</code>), the following
-        questions will be asked, along with the ones covered
+        In case you answer <code>n</code> to the first question(<code
+            >Use simple setup method?</code
+        >), the following questions will be asked, along with the ones covered
         above. The order of the questions here may not be in order of questions
         asked by XMR-Stak.
     </p>
@@ -407,7 +511,7 @@ If you don't want to use it, please enter 0, otherwise enter port number that th
             </ul>
         </li>
     </ol>
-</div>
+</div> -->
 <!-- <h3>For <i class="fa fa-windows"></i> Windows users new to mining</h3>
 <p class="getting_started_windows">
     You can <a class="btn btn-default btn-sm" target="_blank" id="easyminer_link"><i class="fa fa-download"></i> Download</a>
@@ -554,13 +658,13 @@ If you don't want to use it, please enter 0, otherwise enter port number that th
                             lastStats.config.denominationUnit
                         ).toFixed(
                             Math.log(lastStats.config.denominationUnit) /
-                            Math.log(10)
+                                Math.log(10)
                         ) +
                         " " +
                         lastStats.config.symbol;
                     if (
                         document.getElementById("paymentIdWallet").style
-                        .display == "none"
+                            .display == "none"
                     ) {
                         document.getElementById(
                             "paymentIdWallet"
@@ -572,7 +676,7 @@ If you don't want to use it, please enter 0, otherwise enter port number that th
                     }
                     if (
                         document.getElementById("exchangeMining").style
-                        .display == "none"
+                            .display == "none"
                     ) {
                         document.getElementById(
                             "exchangeMining"
@@ -604,7 +708,7 @@ If you don't want to use it, please enter 0, otherwise enter port number that th
                 "examplePort",
                 lastStats.config.ports[0].port.toString()
             );
-        }
+        },
     };
 
     // document
