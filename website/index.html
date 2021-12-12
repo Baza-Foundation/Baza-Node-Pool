@@ -349,7 +349,7 @@
                         currentPage.update();
                     })
                     .always(function () {
-                        fetchLiveStats();
+                        setTimeout(fetchLiveStats, 10000);
                     });
             }
 
@@ -470,7 +470,7 @@
                         data-toggle="collapse"
                         data-target=".navbar-collapse"
                     >
-                        <li style="display: none;" class="active">
+                        <li style="display: none" class="active">
                             <a class="hot_link" data-page="home.html" href="#">
                                 <i class="fa fa-home"></i> Home
                             </a>
@@ -507,7 +507,7 @@
                             </a>
                         </li>
 
-                        <li style="display: none;">
+                        <li style="display: none">
                             <a
                                 class="hot_link"
                                 data-page="blockchain_block.html"
@@ -516,7 +516,7 @@
                             </a>
                         </li>
 
-                        <li style="display: none;">
+                        <li style="display: none">
                             <a
                                 class="hot_link"
                                 data-page="blockchain_transaction.html"
