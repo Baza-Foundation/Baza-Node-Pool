@@ -5,6 +5,6 @@ RUN mkdir /pool/
 COPY package.json /pool/
 COPY package-lock.json /pool/
 WORKDIR /pool/
-RUN npm config set strict-ssl false && npm install
+RUN export NODE_TLS_REJECT_UNAUTHORIZED=0 && npm install
 COPY . /pool/
 CMD node init.js
