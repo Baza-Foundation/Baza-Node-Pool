@@ -19,7 +19,6 @@
         "bignum": "*",
         "cli-color": "^1.4.0",
         "dateformat": "*",
-        "findhit-proxywrap": "^0.3.12",
         "redis": "*",
         "safe-buffer": "^5.1.2",
         "turtlecoin-cryptonote-util": "0.0.6",
