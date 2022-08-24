@@ -19,7 +19,11 @@
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
         <link
-            href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+            href="//use.fontawesome.com/releases/v5.5.0/css/all.css"
+            rel="stylesheet"
+        />
+        <link
+            href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
             rel="stylesheet"
         />
 
@@ -31,7 +35,6 @@
         <link rel="icon" type="image/icon" href="favicon.ico" />
 
         <script src="config.js"></script>
-        <script src="custom.js"></script>
 
         <style>
             #coinName {
@@ -39,7 +42,7 @@
             }
             body {
                 padding-top: 65px;
-                padding-bottom: 80px;
+                /* padding-bottom: 80px; */
                 overflow-y: scroll;
             }
             .container {
@@ -49,7 +52,7 @@
                 font-size: 2em;
             }
             .stats {
-                margin-bottom: 10px;
+                margin-bottom: 40px;
                 margin-top: 5px;
             }
             .stats:last-child {
@@ -601,8 +604,36 @@
             </p>
         </div>
 
-        <footer>
-            <div class="text-muted">
+        <div class="footer bg-dark">
+            <div class="baza-logo">
+                <img class="footer-logo" src="themes/img/baza_logo.png" />
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3 col-xs-6">
+                        <p
+                            class="footer-links-title"
+                            style="margin-left: 0.5rem"
+                        >
+                            SOCIAL LINKS
+                        </p>
+                        <ul class="social-links footer-links"></ul>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <p class="footer-links-title">SITE LINKS</p>
+                        <ul class="site-links footer-links"></ul>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <p class="footer-links-title">EKATAIO LINKS</p>
+                        <ul class="ekataio-links footer-links"></ul>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <p class="footer-links-title">OTHER LINKS</p>
+                        <ul class="other-links footer-links"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="about">
                 Powered by
                 <a
                     target="_blank"
@@ -613,6 +644,7 @@
                 open sourced under the
                 <a href="http://www.gnu.org/licenses/gpl-2.0.html">GPL</a>
             </div>
-        </footer>
+        </div>
+        <script src="custom.js"></script>
     </body>
 </html>
