@@ -37,6 +37,7 @@ const SOCIAL_LINKDATAS = [
 ];
 
 const SITE_LINKDATAS = [
+    { label: "Main Site", href: "https://baza.foundation" },
     { label: "Explorer", href: "https://explorer.baza.foundation" },
     {
         label: "GUI Wallet",
