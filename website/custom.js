@@ -38,7 +38,6 @@ const SOCIAL_LINKDATAS = [
 
 const SITE_LINKDATAS = [
     { label: "Explorer", href: "https://explorer.baza.foundation" },
-    { label: "Mining Pool", href: "https://pool.baza.foundation" },
     {
         label: "GUI Wallet",
         href: "https://gitlab.ekata.io/baza-foundation/baza-fondo-wallet",
@@ -79,7 +78,7 @@ function constructAndAppendFooterLinks(listClass, links) {
         if (item.hasOwnProperty("href")) {
             const link = document.createElement("a");
             link.setAttribute("href", item.href);
-            link.setAttribute("_target", "blank");
+            link.setAttribute("target", "_blank");
             link.innerText = item.label;
             linkListItem.appendChild(link);
         }
