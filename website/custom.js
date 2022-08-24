@@ -78,7 +78,7 @@ function constructAndAppendFooterLinks(listClass, links) {
         }
         if (item.hasOwnProperty("href")) {
             const link = document.createElement("a");
-            link.setAttribute("src", item.href);
+            link.setAttribute("href", item.href);
             link.setAttribute("_target", "blank");
             link.innerText = item.label;
             linkListItem.appendChild(link);
