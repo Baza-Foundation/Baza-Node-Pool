@@ -67,6 +67,11 @@ const OTHER_LINKS = [
     },
 ];
 
+const EXCHANGE_LINKS = [
+    { label: "SouthXchange", href: "https://southxchange.com" },
+    { label: "Exbitron", href: "https://www.exbitron.com/vote" },
+];
+
 function constructAndAppendFooterLinks(listClass, links) {
     const linksList = document.querySelector(listClass);
     links.forEach(function (item) {
@@ -91,3 +96,4 @@ constructAndAppendFooterLinks(".social-links", SOCIAL_LINKDATAS);
 constructAndAppendFooterLinks(".site-links", SITE_LINKDATAS);
 constructAndAppendFooterLinks(".ekataio-links", EKATAIO_LINKS);
 constructAndAppendFooterLinks(".other-links", OTHER_LINKS);
+constructAndAppendFooterLinks(".exchange-links", EXCHANGE_LINKS);
