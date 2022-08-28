@@ -64,21 +64,27 @@
     }
 
     .epc-screenshot {
-        margin-left: -3rem;
+        margin-left: -2rem;
     }
 
     @media only screen and (max-width: 600px) {
+        .epc-screenshot-wrapper {
+            text-align: center;
+        }
         .epc-screenshot {
-            margin-left: 0;
-            width: 350px;
+            margin-left: -1rem;
+            width: 320px;
         }
     }
-    @media only screen and (min-width: 600px) {
+    /* @media only screen and (min-width: 600px) {
+        .epc-screenshot-wrapper {
+            text-align: center;
+        }
         .epc-screenshot {
-            margin-left: 0;
+            margin-left: -1rem;
             width: 350px;
         }
-    }
+    } */
 </style>
 <h3>How to mine the Baza Pool</h3>
 <p>
@@ -117,16 +123,24 @@
             >https://gitlab.ekata.io/baza-foundation/baza-fondo-wallet</a
         >
     </li>
-    <img
-        src="images/my_account_no_address.png"
-        alt="My Account No Address"
-        class="epc-screenshot"
-    />
+    <div class="epc-screenshot-wrapper">
+        <img
+            src="images/my_account_no_address.png"
+            alt="My Account No Address"
+            class="epc-screenshot"
+        />
+    </div>
     <li>
         Once you save your address in tha add wallet screen you will be
         presented with the Stats and Miner screen like following.
     </li>
-    <img src="images/my_account.png" alt="My Account" class="epc-screenshot" />
+    <div class="epc-screenshot-wrapper">
+        <img
+            src="images/my_account.png"
+            alt="My Account"
+            class="epc-screenshot"
+        />
+    </div>
     <p>
         Note: Please set you desired Minimum Payout Level, 200 is the
         recommended default.
@@ -139,11 +153,13 @@
     <li>
         Next select the 'Miner' tab and press the on button to start mining.
     </li>
-    <img
-        src="images/my_account_mining.png"
-        alt="My Account Mining"
-        class="epc-screenshot"
-    />
+    <div class="epc-screenshot-wrapper">
+        <img
+            src="images/my_account_mining.png"
+            alt="My Account Mining"
+            class="epc-screenshot"
+        />
+    </div>
     <li>
         That is it, the miner should run from here! Happy mining the BAZA pool!
         🎉
