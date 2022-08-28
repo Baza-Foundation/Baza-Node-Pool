@@ -62,16 +62,33 @@
         display: inline-block;
         white-space: normal;
     }
-</style>
 
-<h3>Ekata Pool Companion</h3>
+    .epc-screenshot {
+        margin-left: -3rem;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .epc-screenshot {
+            margin-left: 0;
+            width: 350px;
+        }
+    }
+    @media only screen and (min-width: 600px) {
+        .epc-screenshot {
+            margin-left: 0;
+            width: 350px;
+        }
+    }
+</style>
+<h3>How to mine the Baza Pool</h3>
 <p>
-    Ekata Pool Companion is an easy to use mining application which uses
-    baza-dedicated-miner(forked from xmrig) as mining backend. Official binaries
-    are available for Windows, Linux and Android
+    Ekata Pool Companion (EPC) is an easy to use mining application. EPC uses
+    baza-dedicated-miner(forked from xmrig) as mining backend. Official EPC
+    binaries are available for Windows, Linux and Android.
 </p>
-<h2 id="download">Download</h2>
+<h2 id="download">Download the App</h2>
 <p>
+    Download for the EPC App Source is located here:
     <a
         href="https://gitlab.ekata.io/ekata-io-projects/ekata-pool-companion"
         target="_blank"
@@ -79,33 +96,62 @@
     >
 </p>
 <ul>
-    <li>Download the appropriate version for your device</li>
-    <li>Unzip or Install the application</li>
-    <li>Run the application</li>
     <li>
-        Select my account tab and add a baza wallet address,<br />
-        you can create one online at
+        Start off by downloading the appropriate EPC version for your personal
+        computer(PC) or device.
+    </li>
+    <li>Unzip or Install the EPC application.</li>
+    <li>Run the EPC Application.</li>
+    <li>
+        Once you have installed and are running the application. Select the 'My
+        Account' tab and add your BAZA wallet address.<br />
+        You can get a BAZA wallet address from the Baza Foundation website and
+        search for wallets.
         <a href="https://baza.foundation/wallets" target="_blank"
             >https://baza.foundation/wallets</a
-        >
-        or GUI
+        ><br />
+        or from the Official PC BAZA Wallet GUI
         <a
             href="https://gitlab.ekata.io/baza-foundation/baza-fondo-wallet"
             target="_blank"
             >https://gitlab.ekata.io/baza-foundation/baza-fondo-wallet</a
         >
     </li>
-    <img src="images/my_account_no_address.png" alt="My Account No Address" />
-    <li>You will be presented with a screen like following</li>
-    <img src="images/my_account.png" alt="My Account" />
+    <img
+        src="images/my_account_no_address.png"
+        alt="My Account No Address"
+        class="epc-screenshot"
+    />
+    <li>
+        Once you save your address in tha add wallet screen you will be
+        presented with the Stats and Miner screen like following.
+    </li>
+    <img src="images/my_account.png" alt="My Account" class="epc-screenshot" />
     <p>
-        If you used the wallet address first time on the pool, the stats tab
-        will keep showing the loading spinner, don't worry it will start showing
-        stats once you start mining
+        Note: Please set you desired Minimum Payout Level, 200 is the
+        recommended default.
     </p>
-    <li>Go to miner tab and press on start mining</li>
-    <img src="images/my_account_mining.png" alt="My Account Mining" />
-    <li>It should start the mining process 🎉</li>
+    <p>
+        Note: Using the wallet address first time on the pool the stats tab will
+        keep showing the loading spinner. Do not worry it will start showing
+        stats once you start mining.
+    </p>
+    <li>
+        Next select the 'Miner' tab and press the on button to start mining.
+    </li>
+    <img
+        src="images/my_account_mining.png"
+        alt="My Account Mining"
+        class="epc-screenshot"
+    />
+    <li>
+        That is it, the miner should run from here! Happy mining the BAZA pool!
+        🎉
+    </li>
+    <p>
+        Note: Any issues, questions or feedback find community support on
+        Telegram or Discord.
+    </p>
 </ul>
 <!-- <h3 id="baza-dedicated-miner">Baza Dedicated Miner</h3>
 <p>
