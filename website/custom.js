@@ -47,6 +47,10 @@ const SITE_LINKDATAS = [
         label: "Coin Source",
         href: "https://gitlab.ekata.io/baza-foundation/baz-token",
     },
+    {
+        label: "Docker Images",
+        href: "https://hub.docker.com/u/ewarehouse",
+    },
 ];
 
 const EKATAIO_LINKS = [
@@ -64,6 +68,10 @@ const OTHER_LINKS = [
     {
         label: "Mining Pool Stats",
         href: "https://miningpoolstats.stream/bazacoin",
+    },
+    {
+        label: "CoinPaprika",
+        href: "https://coinpaprika.com/coin/baza-bazacoin/",
     },
 ];
 
